@@ -40,11 +40,23 @@ app.use(require('cookie-parser')(credentials.cookieSecret));
 app.use(require('express-session')());
 
 app.use(function(req, res, next) {
-    // if there's a flash message, transfer
-    // it to the context, then clear it
-    res.locals.flash = req.session.flash;
-    delete req.session.flash;
+    console.log('order matters');
     next();
+});
+
+app.use(function(req, res, next) {
+    console.log('processing request for "' + req.url + '"....');
+    next();
+});
+
+app.use(function(req, res, next) {
+    console.log('terminating request');
+    res.send('thanks for playing!');
+    // note that we do NOT call next() here...this terminates the request
+});
+
+app.use(function(req, res, next) {
+    console.log('whoops, i\'ll never get called!');
 });
 
 // Default Routes
