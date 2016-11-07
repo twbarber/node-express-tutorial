@@ -1,1 +1,1 @@
-Chapter 5 Solution
+Chapter 6 Solution
