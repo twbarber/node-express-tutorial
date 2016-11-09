@@ -267,18 +267,17 @@ app.post('/contest/vacation-photo/:year/:month', function(req, res) {
         res.redirect(303, '/thank-you');
     });
 });
-app.get('/tours/:tour', function(req, res, next) {
-    Product.findOne({
-        category: 'tour',
-        slug: req.params.tour
-    }, function(err, tour) {
-        if (err) return next(err);
-        if (!tour) return next();
-        res.render('tour', {
-            tour: tour
-        });
-    });
+
+app.get('/tours/hood-river', function(req, res){
+	res.render('tours/hood-river');
 });
+app.get('/tours/oregon-coast', function(req, res){
+	res.render('tours/oregon-coast');
+});
+app.get('/tours/request-group-rate', function(req, res){
+	res.render('tours/request-group-rate');
+});
+
 app.get('/adventures/:subcat/:name', function(req, res, next) {
     Product.findOne({
         category: 'adventure',

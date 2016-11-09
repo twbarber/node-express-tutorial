@@ -20,4 +20,4 @@ exports.getWeatherData = function () {
             temp: '55.0 F (12.8 C)',
         }, ],
     };
-}
+};
